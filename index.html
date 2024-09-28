@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>برنامج التدريب الصيفي</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-image"></div> <!-- صورة الخلفية -->
+    <img id="universityLogo" src="university_logo.JPG" alt="شعار الجامعة"> <!-- شعار الجامعة -->
+    <h1>برنامج التدريب الصيفي</h1>
+    <nav>
+        <ul>
+            <li><a onclick="showSection('loginStudent')">تسجيل دخول الطالب</a></li>
+            <li><a onclick="showSection('loginDeptSupervisor')">تسجيل دخول مشرف القسم</a></li>
+            <li><a onclick="showSection('loginCompanySupervisor')">تسجيل دخول مشرف الشركة</a></li>
+            <li><a onclick="showSection('loginAdmin')">تسجيل دخول المدير</a></li>
+        </ul>
+    </nav>
+    
+    <div id="loginStudent" class="section">
+        <h2>تسجيل دخول الطالب</h2>
+        <form onsubmit="showSection('studentDashboard'); return false;">
+            <label for="studentUsername">اسم المستخدم:</label>
+            <input type="text" id="studentUsername" required>
+            <label for="studentPassword">كلمة المرور:</label>
+            <input type="password" id="studentPassword" required>
+            <button type="submit">تسجيل الدخول</button>
+        </form>
+    </div>
+    
+    <div id="studentDashboard" class="section dashboard">
+        <h2>لوحة تحكم الطالب</h2>
+        <nav>
+            <ul>
+                <li><a onclick="showSection('attendanceSection')">تسجيل الحضور والانصراف</a></li>
+                <li><a onclick="showSection('submitReport')">تقديم تقرير التدريب</a></li>
+                <li><a onclick="showSection('trainingDetails')">عرض تفاصيل التدريب</a></li>
+                <li><a onclick="showSection('loginStudent')">تسجيل الخروج</a></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <div id="attendanceSection" class="section">
+        <h2>تسجيل الحضور والانصراف</h2>
+        <form>
+            <label for="attendanceDate">التاريخ:</label>
+            <input type="date" id="attendanceDate" required>
+            <label for="attendanceType">نوع التسجيل:</label>
+            <select id="attendanceType" required>
+                <option value="الحضور">الحضور</option>
+                <option value="الانصراف">الانصراف</option>
+            </select>
+            <button type="submit">تسجيل</button>
+        </form>
+    </div>
+    
+    <div id="submitReport" class="section">
+        <h2>تقديم تقرير التدريب</h2>
+        <form>
+            <label for="reportFile">رفع التقرير:</label>
+            <input type="file" id="reportFile" required>
+            <button type="submit">إرسال التقرير</button>
+        </form>
+    </div>
+    
+    <div id="trainingDetails" class="section">
+        <h2>تفاصيل التدريب</h2>
+        <table>
+            <tr>
+                <th>المعلومات</th>
+                <th>التفاصيل</th>
+            </tr>
+            <tr>
+                <td>تاريخ بداية التدريب</td>
+                <td>2024-06-01</td>
+            </tr>
+            <tr>
+                <td>عدد أيام الحضور</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>عدد أيام الانصراف</td>
+                <td>20</td>
+            </tr>
+        </table>
+    </div>
+    
+    <div id="loginDeptSupervisor" class="section">
+        <h2>تسجيل دخول مشرف القسم</h2>
+        <form onsubmit="showSection('deptSupervisorDashboard'); return false;">
+            <label for="deptSupervisorUsername">اسم المستخدم:</label>
+            <input type="text" id="deptSupervisorUsername" required>
+            <label for="deptSupervisorPassword">كلمة المرور:</label>
+            <input type="password" id="deptSupervisorPassword" required>
+            <button type="submit">تسجيل الدخول</button>
+        </form>
+    </div>
+    
+    <div id="deptSupervisorDashboard" class="section dashboard">
+        <h2>لوحة تحكم مشرف القسم</h2>
+        <nav>
+            <ul>
+                <li><a onclick="showSection('evaluateReports')">تقييم تقارير الطلاب</a></li>
+                <li><a onclick="showSection('loginDeptSupervisor')">تسجيل الخروج</a></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <div id="loginCompanySupervisor" class="section">
+        <h2>تسجيل دخول مشرف الشركة</h2>
+        <form onsubmit="showSection('companySupervisorDashboard'); return false;">
+            <label for="companySupervisorUsername">اسم المستخدم:</label>
+            <input type="text" id="companySupervisorUsername" required>
+            <label for="companySupervisorPassword">كلمة المرور:</label>
+            <input type="password" id="companySupervisorPassword" required>
+            <button type="submit">تسجيل الدخول</button>
+        </form>
+    </div>
+    
+    <div id="companySupervisorDashboard" class="section dashboard">
+        <h2>لوحة تحكم مشرف الشركة</h2>
+        <nav>
+            <ul>
+                <li><a onclick="showSection('evaluateReports')">تقييم تقارير الطلاب</a></li>
+                <li><a onclick="showSection('submitAgreement')">تقديم اتفاقية التدريب</a></li>
+                <li><a onclick="showSection('loginCompanySupervisor')">تسجيل الخروج</a></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <div id="submitAgreement" class="section">
+        <h2>تقديم اتفاقية التدريب</h2>
+        <form>
+            <label for="agreementFile">رفع الاتفاقية:</label>
+            <input type="file" id="agreementFile" required>
+            <button type="submit">إرسال الاتفاقية</button>
+        </form>
+    </div>
+    
+    <div id="loginAdmin" class="section">
+        <h2>تسجيل دخول المدير</h2>
+        <form onsubmit="showSection('adminDashboard'); return false;">
+            <label for="adminUsername">اسم المستخدم:</label>
+            <input type="text" id="adminUsername" required>
+            <label for="adminPassword">كلمة المرور:</label>
+            <input type="password" id="adminPassword" required>
+            <button type="submit">تسجيل الدخول</button>
+        </form>
+    </div>
+    
+    <div id="adminDashboard" class="section dashboard">
+        <h2>لوحة تحكم المدير</h2>
+        <nav>
+            <ul>
+                <li><a href="#">إضافة/تعديل طالب</a></li>
+                <li><a href="#">إضافة/تعديل مشرف شركة</a></li>
+                <li><a href="#">إضافة/تعديل مشرف قسم</a></li>
+                <li><a onclick="showSection('loginAdmin')">تسجيل الخروج</a></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <script>
+        function showSection(sectionId) {
+            var sections = document.querySelectorAll('.section');
+            sections.forEach(function(section) {
+                section.classList.remove('active');
+            });
+            var activeSection = document.getElementById(sectionId);
+            activeSection.classList.add('active');
+        }
+        showSection('loginStudent');
+    </script>
+</body>
+</html>
